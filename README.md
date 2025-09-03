@@ -52,9 +52,9 @@ Apache Web Server에서 PHP 애플리케이션 파일을 기동시킬 수 있게
 해당 애플리케이션이 별도 데이터베이스 서버에 의존하는 경우, 데이터베이스 서버 혹은 컨테이너를 먼저 기동한 뒤 네트워크, 환경 변수를 추가 정의하여 기동하셔야 합니다.  
 
 # 이미지 생성 후 컨테이너 실행 방법
+- 컨테이너 이름은 'origami'로 지었다고 전제했습니다.
+- Pukiwiki 등 PHP 애플리케이션 키트는 **실행 경로의 `web` 디렉터리**에 마련해 둘 것을 전제했습니다. 다른 디렉터리에 마련했더라도 **컨테이너 측 경로는 저 경로(`/var/www/html`)여야 합니다.**
+
 ```bash
-## 컨테이너 이름은 'origami'로 지었다고 전제했습니다.
-## 이미지 태그 빌드명은 'oridevpilot'으로 했다고 전제했습니다.
-## Pukiwiki 등 PHP 애플리케이션 키트는 실행 경로의 'web' 디렉터리에 마련해 둘 것을 전제했습니다. 다른 디렉터리에 마련했더라도 컨테이너 측 경로는 저 경로여야 합니다.
-$ docker run --name origami -p 80:80 -d -v ./web:/var/www/html oridevpilot
+$ docker run --name origami -p 80:80 -d -v ./web:/var/www/html ghcr.io/nodeulnaru/apball:7.4
 ```
